@@ -1,0 +1,4 @@
+# Problems I had to see the video explanation 
+
+1. Longest consecutive sequence - Naive (nlogn) done but optimized code (linear) was not able to do
+2. Longest Mountain In Array - Got the intution but could not do in one pass 
