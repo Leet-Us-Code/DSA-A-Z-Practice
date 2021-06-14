@@ -4,4 +4,4 @@
 2. Longest Mountain In Array - Got the intution but could not do in one pass 
 3. Subarray sort
 4. Minimum swaps - totally new approach 
-
+5. Array products - Similiar to trapping rain water
