@@ -3,3 +3,4 @@
 1. Coin Change - Really small clarification
 2. Matrix chain multiplication - whole intution
 3. Edit distance - Had to look up the recursive approach 
+4. Divisor Game - Game theory
