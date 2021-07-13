@@ -69,3 +69,80 @@ class Solution{
         return head;
     }
 };
+
+
+//new soln 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+    ListNode *merge(ListNode *a, ListNode *b)
+    {
+        if(a == NULL && b == NULL)
+            return NULL;
+        ListNode *dummy = new ListNode(0);
+        ListNode *res = dummy;
+        while(a != NULL && b != NULL)
+        {
+            if(a->val > b->val)
+            {
+                res->next = new ListNode(b->val);
+                b = b->next;
+            }
+            else
+            {
+                res->next = new ListNode(a->val);
+                a = a->next;
+            }
+            res = res->next;
+        }
+        while(a)
+        {
+            res->next = new ListNode(a->val);
+            a = a->next;
+            res = res->next;
+        }
+        while(b)
+        {
+            res->next = new ListNode(b->val);
+            b = b->next;
+            res = res->next;
+        }
+        return dummy->next;
+    }
+    ListNode *midPoint(ListNode *head)
+    {
+        //always remember that breaking into functions is necessary but in case of LL try to make the usage of call by reference minimum 
+        if(head == NULL || head->next == NULL)
+            return head;
+        ListNode *fast = head->next, *slow = head;
+        while(fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+    ListNode* sortList(ListNode* head) {
+        if(head == NULL || head->next == NULL)
+            return head;
+        ListNode *mid = midPoint(head);
+        ListNode *a = head, *b = mid->next;
+        mid->next = NULL;
+        a = sortList(a);
+        b = sortList(b);
+        return merge(a, b);
+    }
+};
