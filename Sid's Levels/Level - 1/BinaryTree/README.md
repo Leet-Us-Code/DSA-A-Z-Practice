@@ -5,6 +5,6 @@
 3. Vertical, right view, top view of binary tree<br/>
 4. Build tree from preeorder and postorder<br/>
 5. Construct binary tree from level order<br/>
-6. Tilt of binary tree
+6. Tilt of binary tree<br/>
 7. Remove leaves in a BT 
 
