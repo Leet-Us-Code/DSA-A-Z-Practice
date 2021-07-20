@@ -25,27 +25,32 @@ public:
     }
     vector<vector<int>> verticalTraversal(TreeNode* root) {
         int n = sizeOfBT(root);
-        unordered_map<int, vector<int>> mp;
+        unordered_map<int, vector<pair<int, int>>> mp;
         queue<TreeNode*> q1;
-        queue<int> q2;
+        queue<int> q2, q3;
         q1.push(root);
         q2.push(0);
+        q3.push(0);
         while(!q1.empty() && !q2.empty())
         {
             TreeNode *top = q1.front();
             int dist = q2.front();
+            int dist1 = q3.front();
             q1.pop();
             q2.pop();
-            mp[n-dist].push_back(top->val);
+            q3.pop();
+            mp[n-dist].push_back(make_pair(dist1, top->val));
             if(top->left)
             {
                 q1.push(top->left);
                 q2.push(dist-1);
+                q3.push(dist1+1);
             }
             if(top->right)
             {
                 q1.push(top->right);
                 q2.push(dist+1);
+                q3.push(dist1+1);
             }
         }
         vector<vector<int>> res;
@@ -53,7 +58,12 @@ public:
         {
             if(mp[i].size() != 0){
                 sort(mp[i].begin(), mp[i].end());
-                res.push_back(mp[i]);
+                vector<int> temp;
+                for(int j = 0; j < mp[i].size(); j++)
+                {
+                    temp.push_back(mp[i][j].second);
+                }
+                res.push_back(temp);
             }
         }
         reverse(res.begin(), res.end());
