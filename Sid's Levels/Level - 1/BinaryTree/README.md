@@ -6,5 +6,6 @@
 4. Build tree from preeorder and postorder<br/>
 5. Construct binary tree from level order<br/>
 6. Tilt of binary tree<br/>
-7. Remove leaves in a BT 
+7. Remove leaves in a BT <br/>
+8. Inserting and deleting a node in BT
 
