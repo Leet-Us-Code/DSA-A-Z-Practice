@@ -24,7 +24,7 @@ public:
     //OM GAN GANAPATHAYE NAMO NAMAH 
     //JAI SHRI RAM 
     //JAI BAJRANGBALI 
-    //AMME NARAYANA, DEVI NARAYANA, LASKHMI NARAYANA, BHADRE NARAYANA
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
     Node* cloneGraph(Node* node) {
         if(node == NULL)
             return NULL;
@@ -33,20 +33,23 @@ public:
         mp[node] = cloned;
         queue<Node*> q;
         q.push(node);
+        vector<bool> visited(100, false);
+        visited[node->val] = true;
         while(!q.empty())
         {
-            Node *x = q.front();
+            Node *cur = q.front();
             q.pop();
-            for(Node *n : x->neighbors)
+            for(Node *n : cur->neighbors)
             {
-                if(mp.find(n) == mp.end())
+                if(!visited[n->val])
                 {
+                    visited[n->val] = true;
                     mp[n] = new Node(n->val, {});
                     q.push(n);
                 }
-                mp[x]->neighbors.push_back(mp[n]);
+                mp[cur]->neighbors.push_back(mp[n]);
             }
         }
-        return cloned;
+        return mp[node];
     }
 };
