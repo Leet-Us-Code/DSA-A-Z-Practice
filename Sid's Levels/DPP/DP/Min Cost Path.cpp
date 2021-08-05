@@ -1,3 +1,28 @@
+// Recursive 
+class Solution {
+public:
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+    int helper(vector<vector<int>> &grid, int i, int j)
+    {
+        int m = grid.size();
+        int n = grid[0].size();
+        if(i == m || j == n)
+            return INT_MAX;
+        if(i == m-1 && j == n-1)
+            return grid[i][j];
+        int x1 = helper(grid, i+1, j);
+        int x2 = helper(grid, i, j+1);
+        return min(x1, x2) + grid[i][j];
+    }
+    int minPathSum(vector<vector<int>>& grid) {
+        return helper(grid, 0, 0);
+    }
+};
+
+//DP (tabulation)
 class Solution {
 public:
     //OM GAN GANAPATHAYE NAMO NAMAH 
@@ -7,26 +32,27 @@ public:
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-        int dp[m][n];
-        dp[0][0] = grid[0][0];
-        //first row will be the cumulative sum
-        for(int i = 1; i < n; i++)
+        vector<vector<int>> dp(m, vector<int>(n));
+        //last ele 
+        dp[m-1][n-1] = grid[m-1][n-1];
+        //last col 
+        for(int i = m-2; i >= 0; i--)
         {
-            dp[0][i] = dp[0][i-1] + grid[0][i];
+            dp[i][n-1] = grid[i][n-1] + dp[i+1][n-1];
         }
-        //similiarly for the first column 
-        for(int i = 1; i < m; i++)
+        //last row 
+        for(int i = n-2; i >= 0; i--)
         {
-            dp[i][0] = dp[i-1][0] + grid[i][0];
+            dp[m-1][i] = grid[m-1][i] + dp[m-1][i+1];
         }
-        //populate the rest of the matrix
-        for(int i = 1; i < m; i++)
+        //remaining 
+        for(int i = m-2; i >= 0; i--)
         {
-            for(int j = 1; j < n; j++)
+            for(int j = n-2; j >= 0; j--)
             {
-                dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]);
+                dp[i][j] = min(dp[i+1][j], dp[i][j+1]) + grid[i][j];
             }
         }
-        return dp[m-1][n-1];
+        return dp[0][0];
     }
 };
