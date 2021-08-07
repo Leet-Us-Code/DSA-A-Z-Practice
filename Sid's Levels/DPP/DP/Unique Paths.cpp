@@ -1,3 +1,26 @@
+//Recursive 
+class Solution {
+public:
+    int helper(int r, int c)
+    {
+        if(r < 0 || c < 0)
+            return 0;
+        if(r == 0 || c == 0)
+            return 1;
+        int x1 = helper(r-1, c);
+        int x2 = helper(r, c-1);
+        return x1+x2;
+    }
+    int uniquePaths(int m, int n) {
+        //OM GAN GANAPATHAYE NAMO NAMAH 
+        //JAI SHRI RAM 
+        //JAI BAJRANGBALI 
+        //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+        return helper(m-1, n-1);
+    }
+};
+
+//DP
 class Solution {
 public:
     //OM GAN GANAPATHAYE NAMO NAMAH 
@@ -18,3 +41,5 @@ public:
         return dp[m-1][n-1];
     }
 };
+
+
