@@ -6,22 +6,22 @@ class Solution
     //JAI SHRI RAM 
     //JAI BAJRANGBALI 
     //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
-    bool hasCycle(int src, vector<int> adj[], vector<bool> &visited)
+    bool cycleExists(int src, vector<int> adj[], vector<bool> &visited)
     {
         queue<int> q;
         q.push(src);
         while(!q.empty())
         {
-            int u = q.front();
+            int curNode = q.front();
             q.pop();
-            if(visited[u])
-                return true;
-            visited[u] = true;
-            for(int nodes : adj[u])
+            if(visited[curNode])
+            return true;
+            visited[curNode] = true;
+            for(int node : adj[curNode])
             {
-                if(!visited[nodes])
+                if(!visited[node])
                 {
-                    q.push(nodes);
+                    q.push(node);
                 }
             }
         }
@@ -35,9 +35,8 @@ class Solution
 	    {
 	        if(!visited[i])
 	        {
-	            bool x = hasCycle(i, adj, visited);
-	            if(x)
-	                return true;
+	            if(cycleExists(i, adj, visited))
+	            return true;
 	        }
 	    }
 	    return false;
