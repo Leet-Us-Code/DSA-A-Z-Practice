@@ -6,41 +6,32 @@ class Solution
     //JAI SHRI RAM 
     //JAI BAJRANGBALI 
     //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
-    void bfsHelper(int src, vector<int> adj[], vector<bool> &visited, vector<int> &res)
+    void bfsHelper(int src, vector<int> adj[], vector<bool> &visited, vector<int> &bfs)
     {
         queue<int> q;
         q.push(src);
         visited[src] = true;
         while(!q.empty())
         {
-            int u = q.front();
+            int curNode = q.front();
             q.pop();
-            res.push_back(u);
-            for(int node : adj[u])
+            bfs.push_back(curNode);
+            for(int nodes : adj[curNode])
             {
-                if(!visited[node])
+                if(!visited[nodes])
                 {
-                    q.push(node);
-                    visited[node] = true;
+                    q.push(nodes);
+                    visited[nodes] = true;
                 }
             }
         }
     }
-	vector<int>bfsOfGraph(int V, vector<int> adj[])
+	vector<int>bfsOfGraph(int v, vector<int> adj[])
 	{
 	    // Code here
-	    vector<bool> visited(V, false);
-	    vector<int> res;
-	    //we use for loop in case of unconnected graphs with more than 1 commponent
-	   // for(int i = 0; i < V; i++)
-	   // {
-	   //     if(!visited[i])
-	   //     {
-	   //         bfsHelper(i, adj, visited, res);
-	   //     }
-	   // }
-	   //we should start from 0 it seems -> 
-	   bfsHelper(0, adj, visited, res);
-	    return res;
+	    vector<int> bfs;
+	    vector<bool> visited(v, false);
+	    bfsHelper(0, adj, visited, bfs);
+	    return bfs;
 	}
 };
