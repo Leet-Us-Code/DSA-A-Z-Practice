@@ -1,3 +1,4 @@
+//My soln -> 47/48 cases -> TLE
 class Solution {
 public:
     //OM GAN GANAPATHAYE NAMO NAMAH 
@@ -51,5 +52,40 @@ public:
             }
         }
         return islands;
+    }
+};
+
+//Editorial 
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size(), n = m ? grid[0].size() : 0, islands = 0;
+        bool visited[1000][1000] ;
+        for(int i = 0; i < m; i++)
+        {
+            for(int j =0 ;j < n; j++)
+                visited[i][j] = false;
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '1' && visited[i][j] == false) {
+                    islands++;
+                    eraseIslands(grid, i, j, visited);
+                }
+            }
+        }
+        return islands;
+    }
+private:
+    void eraseIslands(vector<vector<char>>& grid, int i, int j, bool visited[][1000]) {
+        int m = grid.size(), n = grid[0].size();
+        if (i < 0 || i == m || j < 0 || j == n || grid[i][j] == '0' || visited[i][j] == true) {
+            return;
+        }
+        visited[i][j] = true;
+        eraseIslands(grid, i - 1, j, visited);
+        eraseIslands(grid, i + 1, j, visited);
+        eraseIslands(grid, i, j - 1, visited);
+        eraseIslands(grid, i, j + 1, visited);
     }
 };
