@@ -67,3 +67,26 @@ bool isSubsequence(string s, string t) {
         return dp[m][n] == m? 1: 0;
         
     }
+
+//Sid 
+
+class Solution {
+public:
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+    bool isSubsequence(string s, string t) {
+        int n = s.length();
+        int m = t.length();
+        int p1 = 0, p2 = 0;
+        for(int i = 0; i < m; i++)
+        {
+            if(t[i] == s[p1])
+                p1++;
+        }
+        if(p1 == n)
+            return true;
+        return false;
+    }
+};
