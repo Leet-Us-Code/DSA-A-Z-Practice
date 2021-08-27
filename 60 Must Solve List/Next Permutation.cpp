@@ -30,3 +30,50 @@ void nextPermutation(vector<int>& nums) {
         }
         
     }
+
+//Sid 
+
+class Solution {
+public:
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+    void reverseSub(vector<int> &nums, int l, int r)
+    {
+        int n = r - l + 1;
+        for(int i = 0; i < n/2; i++)
+        {
+            swap(nums[l+i], nums[l+(n-1-i)]);
+        }
+    }
+    void nextPermutation(vector<int>& nums) {
+        int n = nums.size();
+        int i;
+        for(i = n-1; i > 0; i--)
+        {
+            if(nums[i] > nums[i-1])
+                break;
+        }
+        if(i == 0)
+        {
+            reverse(nums.begin(), nums.end());
+            return;
+        }
+        int ind = i - 1;
+        int minInd = -1, minEle = INT_MAX;
+        for(int i = ind+1; i < n; i++)
+        {
+            if(nums[i] > nums[ind])
+            {
+                if(minEle >= nums[i])
+                {
+                    minEle = nums[i];
+                    minInd = i;
+                }
+            }
+        }
+        swap(nums[ind], nums[minInd]);
+        reverseSub(nums, ind+1, n-1);
+    }
+};
