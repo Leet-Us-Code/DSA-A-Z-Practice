@@ -16,3 +16,21 @@ public:
         return maxArea;
     }
 };
+
+// Hari
+
+int maxArea(vector<int>& height) {
+        // fast io
+        ios_base::sync_with_stdio(false);
+        int N = height.size();
+        int l = 0, r = N-1;
+        int maxArea = 0;
+        
+        while(l < r){
+            maxArea = max(maxArea, (r-l)*min(height[r], height[l]));
+            if(height[l] > height[r]) r--;
+            else l++;
+        }
+        return maxArea;
+        
+    }
