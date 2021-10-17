@@ -38,3 +38,39 @@ public:
         return res;
     }
 };
+
+// Hari
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> res;
+        set<vector<int>> uSet;
+        int N = nums.size();
+        
+        if(N < 3) return res;
+        sort(nums.begin(), nums.end());
+        
+        for(int i = 0; i<N-2; i++){
+            int l = i+1;
+            int r = N-1;
+            while(l < r){
+                if(nums[i] + nums[l] + nums[r] < 0) l+=1;
+                else if(nums[i] + nums[l] + nums[r] > 0) r -= 1;
+                else {
+                    // sum is zero
+                    vector<int> temp;
+                    temp.push_back(nums[i]);
+                    temp.push_back(nums[l++]);
+                    temp.push_back(nums[r--]);
+                    uSet.insert(temp);
+                }
+            }
+            while(i < N-1 && nums[i] == nums[i+1]) i+=1;
+        }
+        
+        for(auto it: uSet){
+            res.push_back(it);
+        }
+        return res;
+        
+        
+    }
