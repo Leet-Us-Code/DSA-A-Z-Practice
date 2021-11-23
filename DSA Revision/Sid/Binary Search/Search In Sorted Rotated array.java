@@ -12,11 +12,11 @@ class Solution {
         {
             int mid = (r + l)/2;
             if(nums[mid] > nums[n-1])
-                l++;
+                l = mid + 1;
             else 
             {
                 ans = mid;
-                r--;
+                r = mid - 1;
             }
         }
         return ans;
@@ -34,10 +34,10 @@ class Solution {
             }
             else if(nums[mid] > tar)
             {
-                r--;
+                r = mid - 1;
             }
             else
-                l++;
+                l = mid + 1;
         }
         return ans;
     }
