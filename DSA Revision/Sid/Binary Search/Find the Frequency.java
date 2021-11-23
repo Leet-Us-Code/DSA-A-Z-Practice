@@ -14,7 +14,7 @@ class Solution{
             {
                 if(mid > 0 && a[mid] == a[mid-1])
                 {
-                    r--;
+                    r = mid - 1;
                 }
                 else 
                 {
@@ -22,9 +22,9 @@ class Solution{
                 }
             }
             else if(a[mid] > x)
-            r--;
+            r = mid - 1;
             else
-            l++;
+            l = mid + 1;
         }
         return ind;
     }
@@ -39,7 +39,7 @@ class Solution{
             {
                 if(mid < a.length-1 && a[mid] == a[mid+1])
                 {
-                    l++;
+                    l = mid + 1;
                 }
                 else
                 {
@@ -47,9 +47,9 @@ class Solution{
                 }
             }
             else if(a[mid] > x)
-            r--;
+            r = mid - 1;
             else
-            l++;
+            l = mid + 1;
         }
         return ind;
     }
