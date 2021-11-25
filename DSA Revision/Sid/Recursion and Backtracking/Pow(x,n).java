@@ -31,3 +31,25 @@ class Solution {
         }
     }
 }
+//Correct Solution 
+class Solution {
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+    public double myPow(double x, int n) {
+        double temp; 
+        if(n == 0)
+            return 1;
+        temp = myPow(x, n/2);
+        if(n%2 == 0)
+            return temp*temp;
+        else 
+        {
+            if(n > 0)
+                return x*temp*temp;
+            else 
+                return (temp*temp)/x;
+        }
+    }
+}
