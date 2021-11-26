@@ -15,11 +15,12 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
 - Codechef (DSA Learning Series) + Codeforces (a20j ladders) -> Start from Dec and keep doing constantly in free time
 - Start contests on Leetcode from Dec + contests on CF once confident (to an extent atleast) in CP 
 
-### The DSA Plan
+### The Dev Plan
 - Study Java, Spring, Servlets etc
-- Study AWS
+- Study Kubernetes, Docker, AWS
 - Revise JS, React and familiarize both frontend and backend dev
 - Pair programming of Youtube Projects first and then improvise on it 
+- One final big project if time permits
 
 [@Sid - add any changes to the plan if necessary]
 
