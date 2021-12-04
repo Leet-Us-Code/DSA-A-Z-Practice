@@ -16,7 +16,12 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
 - Start contests on Leetcode from Dec + contests on CF once confident (to an extent atleast) in CP 
 
 ### The Dev Plan
-- Study Java, Spring, Servlets etc
+- Study
+   - Java Basics 
+   - OOPS and Exception handling 
+   - JDBC 
+   - Servlets 
+   - Springboot 
 - Study Kubernetes, Docker, AWS
 - Revise JS, React and familiarize both frontend and backend dev
 - Pair programming of Youtube Projects first and then improvise on it 
