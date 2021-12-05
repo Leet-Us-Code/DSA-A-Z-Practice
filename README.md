@@ -12,6 +12,7 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
 ### The DSA Plan
 
 - Blind 75 List [15 days] -> Finish by Dec
+- Finish Striver's Tree and Trie series + new SDE Sheet added problems (in Striver Sheet Repo)
 - Codechef (DSA Learning Series) + Codeforces (a20j ladders) -> Start from Dec and keep doing constantly in free time
 - Start contests on Leetcode from Dec + contests on CF once confident (to an extent atleast) in CP 
 
@@ -21,11 +22,12 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
    - OOPS and Exception handling 
    - JDBC 
    - Servlets 
-   - Springboot 
-- Study Kubernetes, Docker, AWS
-- Revise JS, React and familiarize both frontend and backend dev
+   - Spring, Springboot 
+   - Dependency Injection
+- Study Kubernetes, Docker, AWS, Azure certification
+- Revise DBMS, JS, React and familiarize both frontend and backend dev
 - Pair programming of Youtube Projects first and then improvise on it 
 - One final big project if time permits
 
-[@Sid - add any changes to the plan if necessary]
+[@Sid - we have too much to do and too little time :(]
 
