@@ -30,5 +30,11 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
 - Pair programming of Youtube Projects first and then improvise on it 
 - One final big project if time permits
 
-[@Sid - we have too much to do and too little time :(]
+### Timeline 
+1. Dec 9 - Dec 12 -> DSA using Java & Javascript revision (frontend and backend) 
+2. Dec 13 - Dec 31 -> Java Based Dev with DBMS (Hari -> Watch DBMS videos) 
+3. Jan 1 - Jan 7 -> Cloud (AWS)
+4. Jan 11 - Jan 17 -> To be confirmed 
+
+
 
