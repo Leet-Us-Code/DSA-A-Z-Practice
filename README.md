@@ -26,6 +26,7 @@ Similiarly others -> all you have to do is substitute n in the worst case comple
    - Dependency Injection
 - Study Kubernetes, Docker, AWS, Azure certification
 - Revise DBMS, JS, React and familiarize both frontend and backend dev
+- High level design after which low level design
 - Pair programming of Youtube Projects first and then improvise on it 
 - One final big project if time permits
 
