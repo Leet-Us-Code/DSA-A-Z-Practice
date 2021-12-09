@@ -59,3 +59,34 @@ class Solution {
         return maxProfit;
     }
 }
+
+//Sid -> Method 2
+class Solution {
+    //OM GAN GANAPATHAYE NAMO NAMAH 
+    //JAI SHRI RAM 
+    //JAI BAJRANGBALI 
+    //AMME NARAYANA, DEVI NARAYANA, LASKHMI NARAYANA, BHADRE NARAYANA
+    public static int min(int a, int b)
+    {
+        if(a > b)
+            return b; 
+        return a;
+    }
+    public static int max(int a, int b)
+    {
+        if(a > b)
+            return a;
+        return b;
+    }
+    public int maxProfit(int[] prices) {
+        int minCP = Integer.MAX_VALUE; 
+        int maxProfit = Integer.MIN_VALUE; 
+        int n = prices.length;
+        for(int i = 0; i < n; i++)
+        {
+            minCP = min(minCP, prices[i]);
+            maxProfit = max(maxProfit, prices[i] - minCP);
+        }
+        return maxProfit;
+    }
+}
