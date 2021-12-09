@@ -41,3 +41,52 @@ class Solution {
         return res;
     }
 }
+
+//Sid -> java 2 pointer approach 
+//OM GAN GANAPATHAYE NAMO NAMAH 
+//JAI SHRI RAM 
+//JAI BAJRANGBALI 
+//AMME NARAYANA, DEVI NARAYANA, LAKSHMI NARAYANA, BHADRE NARAYANA
+class Pair{
+    int ind;
+    int num;
+    Pair(int num, int ind)
+    {
+        this.ind = ind; 
+        this.num = num;
+    }
+}
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        Pair[] arr = new Pair[n];
+        for(int i = 0; i < n; i++)
+        {
+            arr[i] = new Pair(nums[i], i);
+        }
+        Arrays.sort(arr, new Comparator<Pair>(){
+            @Override
+            public int compare(Pair p1, Pair p2)
+            {
+                //it must be sorted based on nums[i] value in ascending order 
+                return p1.num - p2.num;
+            }
+        });
+        int l = 0, r = n-1;
+        int[] res = new int[2];
+        while(r > l)
+        {
+            if(arr[r].num + arr[l].num == target)
+            {
+                res[0] = arr[l].ind; 
+                res[1] = arr[r].ind;
+                break;
+            }
+            else if(arr[r].num + arr[l].num > target)
+                r--;
+            else
+                l++;
+        }
+        return res;
+    }
+}
