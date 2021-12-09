@@ -12,3 +12,21 @@ class Solution {
         return false;
     }
 }
+
+// Hari
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> a = new HashSet<Integer>();
+        int N = nums.length;
+        
+        for(int it: nums){
+            if(a.contains(it)) return true;
+            else {
+                a.add(it);
+            }
+        }
+        
+        return false;
+    }
+}
