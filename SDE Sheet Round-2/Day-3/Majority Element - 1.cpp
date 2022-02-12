@@ -1,6 +1,6 @@
 // Hari
 
-// Problem - Majority Element (>N/2 times)
+// Problem - Majority Element (>N/2 times). Only 1 majority ele can exist, as all other elements cancel each other's frequency
 
 int majorityElement(vector<int>& nums) {
         // fast
