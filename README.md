@@ -1,13 +1,9 @@
-### InterviewPrep
-```
-Time Complexity Analysis (Reference)
-Maximum Complexity which can be handled by compiler will be O(10^6) 
-1. So in case of O(n) solution -> constraints will be n <= 10^6 
-2. In case of O(n^2) solution -> constraints will be n <= 10^3 as (10^3 * 10^3 == 10^6)
-Similiarly with others-> all you have to do is just substitute the value of n in the worst case complexity!!
-```
+# Plan 
 
-
-
-
-
+## High Level Overview
+1. Simultaneously practice on DSA (Striver's sheet) and System Design (Gaurav Sen's videos & blogs) -> Jan to August
+  a. Alternating between DSA and System Design 
+  b. Sat & Sun -> Breaks 
+  c. Mon to Fri (any time between 8pm to 11pm for an hour) 
+  d. Cancel in case of hectic work schedule
+  e. In case of burn out, we can switch to development
