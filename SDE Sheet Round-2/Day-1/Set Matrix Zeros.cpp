@@ -1,6 +1,3 @@
-
-
-
 // Hari
 // Method - 1 (using external vectors)
 
@@ -32,33 +29,57 @@ void setZeroes(vector<vector<int>>& matrix) {
         }
     }
 
-// Method - 2 (inplace)
+// Method - 2 
 void setZeroes(vector<vector<int>>& matrix) {
-        // fast
         ios_base::sync_with_stdio(false);
-        // var to keep track of col0's status
-        int firstColFlag = 1;
-        int rows = matrix.size();
-        int cols = matrix[0].size();
-        
-        // set status of firstColFlag and status of perpendicular elements based on current elements
-        for(int i = 0; i<rows; i++){
-            if(matrix[i][0] == 0) firstColFlag = 0; // make it 0
-            for(int j = 1; j<cols; j++){
+        int m = matrix.size(); 
+        int n = matrix[0].size(); 
+
+        // using flags to track the first row and first col 
+        bool rowFlag = false, colFlag = false; 
+
+        // for the first row
+        for(int i = 0; i < n; i++){
+            if(matrix[0][i] == 0)
+                rowFlag = true;
+        }
+
+        // for the first col 
+        for(int j = 0; j < m; j++){
+            if(matrix[j][0] == 0)
+                colFlag = true;
+        }
+
+        // for the rest of the matrix 
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
                 if(matrix[i][j] == 0){
-                    matrix[i][0] = matrix[0][j] = 0;
-                    // changing values of perpendicular to element
+                    matrix[i][0] = 0; 
+                    matrix[0][j] = 0;
                 }
             }
         }
-        
-        // start from back -> if both perpendicular elements are 0, make curr ele as 0. We go from back to not change values of first few rows and cols
-        for(int i = rows-1; i>=0; i--){
-            for(int j = cols-1; j>0; j--){
-                // we dont touch 0th col
-                if(matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;
+
+        // we reflect the changes 
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
+                if(matrix[0][j] == 0 || matrix[i][0] == 0){
+                    matrix[i][j] = 0;
+                }
             }
-            if(firstColFlag == 0) matrix[i][0] = 0;
         }
-        
+
+        // now for the first row and first col 
+
+        if(rowFlag){
+            for(int i = 0; i < n; i++){
+                matrix[0][i] = 0;
+            }
+        }
+
+        if(colFlag){
+            for(int j = 0; j < m; j++){
+                matrix[j][0] = 0;
+            }
+        }
     }
