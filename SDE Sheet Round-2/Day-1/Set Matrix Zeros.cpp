@@ -1,34 +1,38 @@
-// Hari
 
+
+
+// Hari
 // Method - 1 (using external vectors)
 
 void setZeroes(vector<vector<int>>& matrix) {
         // fast
         ios_base::sync_with_stdio(false);
-        int rows = matrix.size();
-        int cols = matrix[0].size();
         
-        vector<int> rowV(rows, -1);
-        vector<int> colV(cols, -1);
-        
-        for(int i = 0; i<rows; i++){
-            for(int j = 0; j<cols; j++){
+        int matrixRows = matrix.size();
+        int matrixCols = matrix[0].size();
+        vector<int> rowFlag(matrixRows, 0);
+        vector<int> colFlag(matrixCols, 0);
+
+        for(int i = 0; i<matrixRows; i++){
+            for(int j = 0; j<matrixCols; j++){
                 if(matrix[i][j] == 0){
-                    rowV[i] = colV[j] = 0;
+                    // set row and col flags = 1
+                    rowFlag[i] = 1;
+                    colFlag[j] = 1;
                 }
             }
         }
-        
-        for(int i = 0; i<rows; i++){
-            for(int j = 0; j<cols; j++){
-                if(rowV[i] == 0 || colV[j] == 0) matrix[i][j] = 0;
+
+        for(int i = 0; i<matrixRows; i++){
+            for(int j = 0; j<matrixCols; j++){
+                if(rowFlag[i] == 1 || colFlag[j] == 1){
+                    matrix[i][j] = 0;
+                }
             }
         }
-        return;
     }
 
 // Method - 2 (inplace)
-
 void setZeroes(vector<vector<int>>& matrix) {
         // fast
         ios_base::sync_with_stdio(false);
