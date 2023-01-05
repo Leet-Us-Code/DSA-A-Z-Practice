@@ -27,4 +27,33 @@ void nextPermutation(vector<int>& nums) {
             reverse(nums.begin()+l+1, nums.end());
         }
         
+    } 
+
+
+// Sid 
+void nextPermutation(vector<int>& nums) {
+        int n = nums.size(); 
+        int breakPoint = -1; 
+        for(int i = n-1; i > 0; i--){
+            if(nums[i-1] < nums[i]){
+                breakPoint = i-1; 
+                break;
+            }
+        }
+
+        if(breakPoint != -1){
+            int smallestElementGreaterThanBreakPoint = INT_MAX, smallestElementGreaterThanBreakPointInd = -1; 
+            for(int i = breakPoint+1; i < n; i++){
+                if(smallestElementGreaterThanBreakPoint > nums[i] && nums[i] > nums[breakPoint]){
+                    smallestElementGreaterThanBreakPoint = nums[i]; 
+                    smallestElementGreaterThanBreakPointInd = i;
+                }
+            }
+            swap(nums[breakPoint], nums[smallestElementGreaterThanBreakPointInd]);
+            sort(nums.begin() + breakPoint+1, nums.end());
+        }
+        else{
+            sort(nums.begin(), nums.end());
+        }
     }
+
