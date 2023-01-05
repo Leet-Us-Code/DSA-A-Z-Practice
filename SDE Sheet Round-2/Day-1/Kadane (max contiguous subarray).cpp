@@ -15,3 +15,23 @@ int maxSubArray(vector<int>& nums) {
         
         return max_so_far;
     }
+
+// Hari
+
+int maxSubArray(vector<int>& nums) {
+        int largestSubarrayTillNowSum = INT_MIN;
+        int currentSubarraySum = 0;
+        int n = nums.size();
+
+        for(int i = 0; i<n; i++){
+            currentSubarraySum += nums[i];
+            if(currentSubarraySum > largestSubarrayTillNowSum) {
+                largestSubarrayTillNowSum = currentSubarraySum;
+            }
+
+            if(currentSubarraySum < 0) currentSubarraySum = 0;
+        }
+
+        return largestSubarrayTillNowSum;
+
+    }
